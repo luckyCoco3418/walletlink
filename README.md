@@ -1,5 +1,12 @@
 # WalletLink
 
+```
+It was forked from walletlink v2.0.3, updated codes to avoid page reloading 
+when disconnected.
+onDisconnect parameter has been added in WalletLink constructor option to 
+get a notification when disconnected.
+```
+
 WalletLink is an open protocol that lets users connect their mobile wallets to
 your DApp.
 
