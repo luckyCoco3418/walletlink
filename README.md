@@ -1,10 +1,8 @@
 # WalletLink
 
 ```
-It was forked from walletlink v2.0.3, updated codes to avoid page reloading 
-when disconnected.
-onDisconnect parameter has been added in WalletLink constructor option to 
-get a notification when disconnected.
+It was forked from walletlink v2.0.3, updated codes to avoid page reloading when disconnected.
+onDisconnect parameter has been added in WalletLink constructor option to get a notification when disconnected.
 ```
 
 WalletLink is an open protocol that lets users connect their mobile wallets to
@@ -63,7 +61,8 @@ const CHAIN_ID = 1
 export const walletLink = new WalletLink({
   appName: APP_NAME,
   appLogoUrl: APP_LOGO_URL,
-  darkMode: false
+  darkMode: false,
+  onDisconnect
 })
 
 // Initialize a Web3 Provider object
@@ -71,6 +70,8 @@ export const ethereum = walletLink.makeWeb3Provider(ETH_JSONRPC_URL, CHAIN_ID)
 
 // Initialize a Web3 object
 export const web3 = new Web3(ethereum as any)
+
+const onDisconnected = () => {}
 ```
 
 ### Use EIP-1102 to obtain authorization and get Ethereum accounts
