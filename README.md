@@ -49,7 +49,7 @@ constructor.
 
 ```typescript
 // TypeScript
-import WalletLink from 'walletlink'
+import WalletLink from 'walletlink-e'
 import Web3 from 'web3'
 
 const APP_NAME = 'My Awesome App'
