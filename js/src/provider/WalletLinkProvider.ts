@@ -4,8 +4,7 @@
 
 import BN from "bn.js"
 import {
-  EthereumTransactionParams,
-  WalletLinkRelay
+  EthereumTransactionParams, WalletLinkRelay
 } from "../relay/WalletLinkRelay"
 import { RequestEthereumAccountsResponse } from "../relay/Web3Response"
 import { AddressString, Callback, IntNumber } from "../types"
@@ -13,9 +12,11 @@ import {
   ensureAddressString,
   ensureBN,
   ensureBuffer,
-  ensureParsedJSONObject,
+
   ensureHexString,
-  ensureIntNumber,
+  ensureIntNumber, ensureParsedJSONObject,
+
+
   ensureRegExpString
 } from "../util"
 import eip712 from "../vendor-js/eth-eip712-util"

@@ -65,6 +65,7 @@ export interface WalletLinkRelayOptions {
   walletLinkUrl: string
   version: string
   darkMode: boolean
+  onDisconnected: any | null
 }
 
 export class WalletLinkRelay {
@@ -84,8 +85,11 @@ export class WalletLinkRelay {
   private appLogoUrl: string | null = null
   private attached = false
 
+  private readonly onDisconnected: any | null = null
+
   constructor(options: Readonly<WalletLinkRelayOptions>) {
     this.walletLinkUrl = options.walletLinkUrl
+    this.onDisconnected = options.onDisconnected
 
     const u = url.parse(this.walletLinkUrl)
     this.walletLinkOrigin = `${u.protocol}//${u.host}`
@@ -137,7 +141,11 @@ export class WalletLinkRelay {
       .subscribe(_ => {
         this.connection.destroy()
         this.storage.clear()
-        document.location.reload()
+
+        // document.location.reload()
+        if (this.onDisconnected != null) {
+          this.onDisconnected();
+        }
       })
   }
 

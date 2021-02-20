@@ -24,6 +24,8 @@ export interface WalletLinkOptions {
   darkMode?: boolean
   /** @optional WalletLink server URL; for most, leave it unspecified */
   walletLinkUrl?: string
+  /** @optional Callback function to be called when disconnected */
+  onDisconnected?: any | null
 }
 
 export class WalletLink {
@@ -44,7 +46,8 @@ export class WalletLink {
     this._relay = new WalletLinkRelay({
       walletLinkUrl: options.walletLinkUrl || WALLETLINK_URL,
       version: WALLETLINK_VERSION,
-      darkMode: !!options.darkMode
+      darkMode: !!options.darkMode,
+      onDisconnected: options.onDisconnected
     })
     this.setAppInfo(options.appName, options.appLogoUrl)
     this._relay.attach(document.documentElement)
